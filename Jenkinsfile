@@ -15,11 +15,11 @@ pipeline {
         stage('build') {
             steps {
 
-		sh "cmake CMakeLists.txt -G 'Unix Makefiles'
+		sh '''cmake CMakeLists.txt -G 'Unix Makefiles'
 		make
 		make install
 
-		RUN fpm -s dir -t deb --prefix /usr/local assimp"
+		RUN fpm -s dir -t deb --prefix /usr/local assimp'''
             }
         }
     }
