@@ -10,4 +10,6 @@ WORKDIR "/workspace"
 RUN cmake CMakeLists.txt -G 'Unix Makefiles'
 RUN make
 RUN make install
-RUN /usr/local/bin/assimp --version
+
+RUN apt-get install rubygems
+RUN gem install fpm
