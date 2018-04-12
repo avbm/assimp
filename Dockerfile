@@ -11,6 +11,6 @@ COPY . /workspace
 
 WORKDIR "/workspace"
 RUN cmake CMakeLists.txt -G 'Unix Makefiles'
-RUN make
+RUN PREFIX=/apps/assimp make
 RUN make install
 

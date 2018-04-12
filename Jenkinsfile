@@ -3,7 +3,7 @@ pipeline {
         node { label 'master' }
     }
     parameters {
-        stringParam(defaultValue: 'HEAD', description: 'git ref to build', name: 'git_ref')
+        string(defaultValue: 'HEAD', description: 'git ref to build', name: 'git_ref')
     }
     stages {
         stage('checkout_scm') {
