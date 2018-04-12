@@ -4,7 +4,7 @@ pipeline {
             steps {
                 checkout scm
             }
-        },
+        }
         stage('build') {
             steps {
                 sh "docker build ."
