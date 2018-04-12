@@ -18,7 +18,8 @@ pipeline {
 		sh '''cmake CMakeLists.txt -G 'Unix Makefiles'
 		make
 		make install
-		fpm -s dir -t deb -C /usr/local --name assimp'''
+		fpm -s dir -t deb -C /usr/local --name assimp
+                dpkg -i assimp_1.0_amd64.deb'''
             }
         }
     }
