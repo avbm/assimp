@@ -4,10 +4,10 @@ pipeline {
             steps {
                 checkout scm
             }
-        }
+        },
         stage('build') {
             steps {
-                docker build .
+                sh "docker build ."
             }
         }
     }
