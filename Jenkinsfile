@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image '3bf86244429c' }
+        docker { image 'bf47884c1845' }
     }
     parameters {
         string(defaultValue: 'HEAD', description: 'git ref to build', name: 'git_ref')
