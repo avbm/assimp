@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        node { label 'master' }
+        docker { image 'jenkins_slave' }
     }
     parameters {
         string(defaultValue: 'HEAD', description: 'git ref to build', name: 'git_ref')
@@ -14,7 +14,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "docker build ."
+
+		sh "cmake CMakeLists.txt -G 'Unix Makefiles'
+		make
+		make install
+
+		RUN fpm -s dir -t deb --prefix /usr/local assimp"
             }
         }
     }

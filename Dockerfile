@@ -1,16 +1,12 @@
-FROM ubuntu:16.04
-RUN apt-get update
-RUN apt-get install cmake g++ -y
-RUN make --version
-
-RUN apt-get install libffi-dev rubygems ruby-dev -y
-RUN gem install fpm
+FROM 'jenkins_slave'
 
 RUN mkdir /workspace
 COPY . /workspace
 
 WORKDIR "/workspace"
-RUN ASSIMP_DIR=/apps/assimp cmake CMakeLists.txt -G 'Unix Makefiles'
+RUN ASSIMP_ROOT_DIR=/apps/assimp cmake CMakeLists.txt -G 'Unix Makefiles'
 RUN make
 RUN make install
 
+RUN fpm -s dir -t deb --prefix /apps assimp 
+RUN bash
