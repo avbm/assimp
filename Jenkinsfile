@@ -1,4 +1,7 @@
 pipeline {
+    agent {
+        node { label 'master' }
+    }
     stages {
         stage('checkout_scm') {
             steps {

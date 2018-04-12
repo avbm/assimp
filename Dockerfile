@@ -11,5 +11,5 @@ RUN cmake CMakeLists.txt -G 'Unix Makefiles'
 RUN make
 RUN make install
 
-RUN apt-get install rubygems
+RUN apt-get install rubygems -y
 RUN gem install fpm
