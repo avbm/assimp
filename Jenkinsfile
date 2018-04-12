@@ -19,7 +19,7 @@ pipeline {
 		# make
 		# make install
 
-		RUN fpm -s dir -t deb --prefix /usr/local -C /usr/local assimp'''
+		fpm -s dir -t deb --prefix /usr/local -C /usr/local assimp'''
             }
         }
     }
